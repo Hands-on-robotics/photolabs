@@ -178,101 +178,30 @@ const photo10 = {
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
 }
-
+photo1.similar_photos = [ photo2, photo3, photo4, photo5]
+photo2.similar_photos = [ photo1, photo3, photo4, photo5]
+photo3.similar_photos = [ photo2, photo3, photo4, photo5]
+photo4.similar_photos = [ photo2, photo3, photo4, photo5]
+photo5.similar_photos = [ photo2, photo3, photo4, photo5]
+photo6.similar_photos = [ photo2, photo3, photo4, photo5]
+photo7.similar_photos = [ photo2, photo3, photo4, photo5]
+photo8.similar_photos = [ photo2, photo3, photo4, photo5]
+photo9.similar_photos = [ photo2, photo3, photo4, photo5]
+photo10.similar_photos = [ photo2, photo3, photo4, photo5]
 
 
 
 const photos = [
-  {
-    ...photo1,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo2,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo3,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo4,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo5,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo6,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo7,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo8,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo9,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  },
-  {
-    ...photo10,
-    similar_photos: {
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-    }
-  }
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
+  photo6,
+  photo7,
+  photo8,
+  photo9,
+  photo10
 ]
 
 export default photos;

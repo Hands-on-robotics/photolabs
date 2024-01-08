@@ -1,17 +1,16 @@
 import React from "react";
-
 import "../styles/TopicListItem.scss";
 
-const sampleDataForTopicListItem = {
-  id: "1",
-  slug: "topic-1",
-  label: "Nature",
-};
+const TopicListItem = ({ topic, fetchPhotosByTopic }) => {
 
-const TopicListItem = () => {
+  const handleTopicClick = (e) => {
+    e.preventDefault();
+    fetchPhotosByTopic(topic.id);
+  }
+
   return (
     <div className="topic-list__item">
-      {/* Insert React */}
+      <span onClick={handleTopicClick}>{topic.title}</span>
     </div>
   );
 };

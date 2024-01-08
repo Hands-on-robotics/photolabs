@@ -40,3 +40,5 @@ Running the server so it returns an error when saving/deleting for testing the c
 ```sh
 npm run error
 ```
+
+The client runs on port 3000, and the API server runs on port 8001.

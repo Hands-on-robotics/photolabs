@@ -22,3 +22,19 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+## App Showcase
+
+
+This is a demo app for viewing your photos like instagram!
+
+The app is made for both desktop and devices with it's responsive design.
+![Screenshot 1](docs/landing-page.png)
+
+When selecting a photo, you can view it closely and favourite the photo.
+![Screenshot 2](docs/in-the-modal.png)
+
+You can also look at pics by your favourite topic!
+![Screenshot 3](docs/favourite-topic.png)
+
+The modal also has a scrollable and responsive design.
+![Screenshot 4](docs/scrolling-in-modal.png)

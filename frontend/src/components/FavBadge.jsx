@@ -1,12 +1,14 @@
 import React from 'react';
 import FavIcon from './FavIcon';
-
 import '../styles/FavBadge.scss';
 
-const FavBadge = ({ isFavPhotoExist }) => {
+const FavBadge = ({ selected, isFavPhotoExist }) => {
   return (
     <div className='fav-badge'>
-      <FavIcon displayAlert={!!isFavPhotoExist}/>
+      <FavIcon
+        selected={selected}
+        displayAlert={!!isFavPhotoExist}
+      />
     </div>
   ) 
 };

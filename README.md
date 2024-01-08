@@ -40,4 +40,4 @@ You can also look at pics by your favourite topic!
 ![Look by Topic](docs/favourite-topic.png)
 
 The modal also has a scrollable and responsive design.
-![Scrolling in the Modal](docs/scrolling-in-modal.png)
+![Scrolling in the Modal](docs/responsive-modal-size.png)

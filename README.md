@@ -5,7 +5,10 @@ The PhotoLabs project for the Web Development React course programming.
 
 ## Setup
 
-Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
+Install dependencies with `npm install` inside the directories `/frontend` and `/backend`.
+To run the demo app, you'll need to open up a second terminal to run both the backend and the frontend servers at the same time on your local computer.
+
+To run the servers
 
 ## [Frontend] Running Webpack Development Server
 
@@ -14,9 +17,9 @@ cd frontend
 npm start
 ```
 
-## [Backend] Running Backend Servier
+## [Backend] Running Backend Server
 
-Read `backend/readme` for further setup details.
+The app's database will need to be setup on your local computer to run. There's a quick read me to set it up in the backend folder.
 
 ```sh
 cd backend

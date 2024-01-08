@@ -4,7 +4,9 @@
 
 Install dependencies with `npm install`.
 
-## Creating The DB
+## Creating The Postgres DB
+
+This app uses PostgreSQL for the DB.
 
 Use the `psql -U labber` command to login to the PostgreSQL server with the username `labber` and the password `labber`. This command **MUST** be run in a vagrant terminal, we are using the PostgreSQL installation provided in the vagrant environment. M1/M2 and WSL2 users can execute this command in their terminal.
 

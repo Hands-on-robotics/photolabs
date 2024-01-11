@@ -1,13 +1,15 @@
 import React from 'react';
 import TopicList from './TopicList';
 import FavIcon from './FavIcon';
+import SearchBar from './SearchBar';
 import '../styles/TopNavigationBar.scss'
 
 const TopNavigationBar = ( {
   topics,
   favPhotoIdsObject,
+  fetchAllPhotos,
   fetchPhotosByTopic,
-  fetchAllPhotos
+  filterPhotosBySearch,
   } ) => {
 
   const favouriteCounter = favPhotoIdsObject.length > 0 ? favPhotoIdsObject.length : null;
@@ -26,6 +28,7 @@ const TopNavigationBar = ( {
         topics={topics}
         fetchPhotosByTopic={fetchPhotosByTopic}
       />
+      <SearchBar filterPhotosBySearch={filterPhotosBySearch} />
       <h3>
         <FavIcon 
           displayAlert={displayAlert}

@@ -11,7 +11,9 @@ const initialState = {
 export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_PHOTO_DISPLAY: 'SET_PHOTO_DISPLAY',
   GET_PHOTOS_BY_TOPIC: 'GET_PHOTOS_BY_TOPIC',
+  GET_PHOTOS_BY_SEARCH: 'GET_PHOTOS_BY_SEARCH',
   SELECT_PHOTO: 'SELECT_PHOTO',
   FAV_PHOTO_ADD: 'FAV_PHOTO_ADD',
   FAV_PHOTO_REMOVE: 'FAV_PHOTO_REMOVE',
@@ -24,7 +26,12 @@ function reducer(state, action) {
       return { ...state, topicData: action.payload };
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
+    case ACTIONS.SET_PHOTO_DISPLAY: // TODO: UPDATE photoData
+      return { ...state, photoData: action.payload };
     case ACTIONS.GET_PHOTOS_BY_TOPIC:
+      return { ...state, photoData: action.payload };
+    case ACTIONS.GET_PHOTOS_BY_SEARCH: // SearchBar
+      console.log('file name useApplicationData.js: updated photoData', state.photoData);
       return { ...state, photoData: action.payload };
     case ACTIONS.SELECT_PHOTO:
       return { ...state, selectedPhotoId: action.selectedPhotoId };
@@ -41,13 +48,13 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch('http://localhost:8001/api/topics')
+    fetch('/api/topics')
       .then(res => res.json())
       .then(data => {
         dispatch({ type: 'SET_TOPIC_DATA', payload: data})
       })
 
-    fetch('http://localhost:8001/api/photos')
+    fetch('/api/photos')
       .then(res => res.json())
       .then(data => { 
         dispatch({ type: 'SET_PHOTO_DATA', payload: data });
@@ -56,19 +63,30 @@ const useApplicationData = () => {
   }, []);
 
   const fetchAllPhotos = () => {
-    fetch('http://localhost:8001/api/photos')
+    fetch('/api/photos')
     .then(res => res.json())
     .then(data => { 
       dispatch({ type: 'SET_PHOTO_DATA', payload: data });
-    })
+    }) 
   }
 
   const fetchPhotosByTopic = (topicID) => {
-    fetch(`http://localhost:8001/api/topics/photos/${topicID}`)
+    fetch(`/api/topics/photos/${topicID}`)
     .then(res => res.json())
     .then(data => {
       dispatch({ type: 'GET_PHOTOS_BY_TOPIC', payload: data });
     })
+  };
+
+  // SearchBar API: test username 'sitad'
+  const filterPhotosBySearch = (searchText) => {
+    fetch(`/api/search-photos?searchText=${searchText}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log('file name useApplicationData.js: Yay data received here!', data);
+        
+        dispatch({ type: ACTIONS.GET_PHOTOS_BY_SEARCH, payload: data });
+      });
   };
   
   const handleSelectPhoto = (photoId) => dispatch({ type: ACTIONS.SELECT_PHOTO, selectedPhotoId: photoId });
@@ -84,13 +102,16 @@ const useApplicationData = () => {
     }
   };
 
-  return { 
+  return {
+    // one state object
     state,
+    // handlers
     toggleFavourite,
     handleSelectPhoto,
     handleClosePhoto,
+    fetchAllPhotos,
     fetchPhotosByTopic,
-    fetchAllPhotos
+    filterPhotosBySearch, // props for photos if (photoData) photoData.map else photos.map
   };
 };
 

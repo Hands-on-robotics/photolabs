@@ -9,12 +9,14 @@ const App = () => {
   const { 
     state: {
       photoData,
+      filteredPhotos,
       topicData,
       selectedPhotoId,
       favPhotoIdsObject,
     },
     fetchAllPhotos,
     fetchPhotosByTopic,
+    filterPhotosBySearch,
     toggleFavourite,
     handleSelectPhoto,
     handleClosePhoto,
@@ -25,11 +27,14 @@ const App = () => {
     <HomeRoute
       photos={photoData}
       topics={topicData}
+      filteredPhotos={filteredPhotos}
       fetchAllPhotos={fetchAllPhotos}
       fetchPhotosByTopic={fetchPhotosByTopic}
+      filterPhotosBySearch={filterPhotosBySearch}
       favPhotoIdsObject={favPhotoIdsObject} 
       toggleFavourite={toggleFavourite}
       handleSelectPhoto={handleSelectPhoto}
+
     />
     {selectedPhotoId && 
     <PhotoDetailsModal 

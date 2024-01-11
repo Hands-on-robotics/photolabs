@@ -6,6 +6,8 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = ( { 
   photos,
   topics,
+  filteredPhotos,
+  filterPhotosBySearch,
   fetchPhotosByTopic,
   toggleFavourite,
   handleSelectPhoto,
@@ -20,9 +22,11 @@ const HomeRoute = ( {
         favPhotoIdsObject={favPhotoIdsObject}
         fetchAllPhotos={fetchAllPhotos}
         fetchPhotosByTopic={fetchPhotosByTopic}
+        filterPhotosBySearch={filterPhotosBySearch}
       />
       <PhotoList
         photos={photos}
+        filteredPhotos={filteredPhotos}
         favPhotoIdsObject={favPhotoIdsObject}
         toggleFavourite={toggleFavourite}
         handleSelectPhoto={handleSelectPhoto}

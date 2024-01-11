@@ -11,6 +11,7 @@ const app = express();
 const db = require("./db")
 
 const photos = require("./routes/photos");
+const searchPhotos = require("./routes/search-photos");
 const topics = require("./routes/topics");
 
 function read(file) {
@@ -38,6 +39,7 @@ module.exports = function application(
 
   app.use("/api", photos(db));
   app.use("/api", topics(db));
+  app.use("/api", searchPhotos(db)); // SEARCH PATH
 
   if (ENV === "development" || ENV === "test") {
     Promise.all([

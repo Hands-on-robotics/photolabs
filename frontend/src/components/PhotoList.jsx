@@ -4,14 +4,17 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = ( { 
   photos,
+  filteredPhotos,
   favPhotoIdsObject,
   handleSelectPhoto,
   toggleFavourite
   } ) => {
 
+  const displayPhotos = filteredPhotos && filteredPhotos.length > 0 ? filteredPhotos : photos
+
   return (
     <ul className="photo-list">
-      {photos && photos.map((photo) => {
+      {displayPhotos && displayPhotos.map((photo) => {
         
         return (
           <PhotoListItem
